@@ -20,7 +20,7 @@ const Block1 = styled.div`
     border-radius: 30px;
     border: 2px solid ${theme.colors.blue[1]};
     .tab {
-        padding: 5px 10px 5px 10px;
+        padding: 3px 20px 3px 20px;
         cursor: pointer;
         color: ${theme.colors.black[0]};
         border-radius: 16px;

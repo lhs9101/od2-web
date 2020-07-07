@@ -5,22 +5,26 @@ import { Switch, Route, useRouteMatch, useLocation } from "react-router-dom";
 import LearnerResultMainContainer from "../containers/learner/LearnerResultMainContainer";
 import styled from "styled-components";
 
-const Main = styled.div`
-    margin-top: 111px;
+const Block = styled.div`
+    height: 100%;
+    .main {
+        padding-top: 111px;
+        height: 100%;
+    }
 `;
 export default function LearnerPage() {
     const { path } = useRouteMatch();
     const { pathname } = useLocation();
 
     return (
-        <>
+        <Block>
             <LearnerHeader initialIndex={pathname.indexOf("result") !== -1 ? 1 : 0} />
-            <Main>
+            <div className="main">
                 <Switch>
                     <Route path={`${path}/assessment/main`} component={LearnerAssessmentMainContainer} />
                     <Route path={`${path}/result/main`} component={LearnerResultMainContainer} />
                 </Switch>
-            </Main>
-        </>
+            </div>
+        </Block>
     );
 }

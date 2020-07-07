@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { theme } from "../../styles/globalStyle";
-
-export default styled.button`
+const Button = styled.button`
     width: 300px;
     padding: 10px;
     display: flex;
@@ -15,3 +14,4 @@ export default styled.button`
     font-family: "NanumGothicBold";
     cursor: pointer;
 `;
+export default Button;

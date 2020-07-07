@@ -6,3 +6,11 @@ export const createPostRequest = (url, body) => axios.post(url, body).then((resu
 export const requestSignIn = (params) => createPostRequest(`/lms/sls2/api/${params.mode}/sign-in-local`, params.body);
 export const requestLearnerInfo = () => createGetRequest("/lms/sls2/api/learner/assessment/main");
 export const requestLearnerProgress = (params) => createGetRequest(`/lms/sls2/api/learner/assessment/progress/M0/${params.assessment_division_code}/${params.grade_code}`);
+export const requestLearnerResultReport = (params) => createGetRequest(`/lms/sls2/api/learner/result/report/${params.subject_code}/${params.assessment_division_code}/${params.grade_code}`);
+export const requestLearnerMypage = () => createGetRequest("/lms/sls2/api/learner/my-page/main");
+export const requestLearnerQuestionInfo = (params) => {
+    const { subject_code, assessment_division_code, grade_code, question_offer_group } = params;
+    console.log(`/lms/sls2/api/learner/assessment/question/${subject_code}/${assessment_division_code}/${grade_code}/${question_offer_group}/true`);
+
+    return createGetRequest(`/lms/sls2/api/learner/assessment/question/${subject_code}/${assessment_division_code}/${grade_code}/${question_offer_group}/true`);
+};

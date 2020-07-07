@@ -4,21 +4,17 @@ import { theme } from "../../styles/globalStyle";
 import Progress from "../../components/learner/assessmentMain/Progress";
 import Learning from "../../components/learner/assessmentMain/Learning";
 import AssessmentBox from "../../components/learner/assessmentMain/AssessmentBox";
-import Button from "../../components/common/Button";
+import BasicButton from "../../components/common/Button";
 import { useSelector, useDispatch } from "react-redux";
 import { getLearnerInfo, getLearnerProgress } from "../../modules/learnerAssessment";
 import Loading from "../../components/common/Loading";
-const Block = styled.div`
-    padding: 16px;
-    max-width: 500px;
-    margin: auto;
-    .row1 {
-        font-size: ${theme.fontSize[1]};
-    }
-    .alphabet {
-        color: ${theme.colors.blue[2]};
-        font-family: "NanumGothicBold";
-    }
+import MainLayout from "../../components/learner/MainLayout";
+import { getLearnerQuestion } from "../../modules/learnerQuestion";
+import { useHistory } from "react-router-dom";
+const Button = styled(BasicButton)`
+    width: 100%;
+`;
+const Block = styled(MainLayout)`
     .assessment-box-container {
         display: flex;
         justify-content: center;
@@ -28,6 +24,7 @@ const Block = styled.div`
     .button-wrapper {
         display: flex;
         justify-content: center;
+        margin-top: 30px;
     }
 `;
 const Card = styled.div`
@@ -39,14 +36,20 @@ const Card = styled.div`
     }
 `;
 export default function LearnerAssessmentMainContainer() {
+    const history = useHistory();
     const { learnerInfo, progressInfo } = useSelector((state) => state.learnerAssessment);
     const dispatch = useDispatch();
     useEffect(() => {
+        if (learnerInfo.data) return;
         dispatch(getLearnerInfo());
-    }, [dispatch]);
+    }, [dispatch, learnerInfo.data]);
     useEffect(() => {
         if (learnerInfo.data) dispatch(getLearnerProgress(learnerInfo.data[0]));
     }, [dispatch, learnerInfo.data]);
+    const startAssessment = () => {
+        dispatch(getLearnerQuestion({ ...learnerInfo.data[0], question_offer_group: "00" + (progressInfo.data.question_offer_group_status.indexOf("02") + 1) }));
+        history.push("/lms/sls2/learner/question");
+    };
     if (progressInfo.data)
         return (
             <Block>
@@ -69,7 +72,7 @@ export default function LearnerAssessmentMainContainer() {
                     ))}
                 </div>
                 <div className="button-wrapper">
-                    <Button>평가 {progressInfo.data.question_offer_group_status.indexOf("02") + 1} 시작하기</Button>
+                    <Button onClick={startAssessment}>평가 {progressInfo.data.question_offer_group_status.indexOf("02") + 1} 시작하기</Button>
                 </div>
             </Block>
         );

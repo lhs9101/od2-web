@@ -25,6 +25,8 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body {
+        width:100vw;
+        height:100vh;
         font-family: "NanumGothic";
         font-weight:500;
         color:${theme.colors.black[0]};
@@ -41,12 +43,16 @@ export const GlobalStyle = createGlobalStyle`
         font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
             monospace;
     }
-
+    #root{
+        width:100%;
+        height:100%;
+    }
     #modal{
         position:fixed;
         width:100vw;
         height:100vh;
         top:0;
-        pointer-events:none
+        pointer-events:none;
+        overflow:hidden;
     }
 `;

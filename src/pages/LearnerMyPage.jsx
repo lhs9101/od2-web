@@ -1,5 +1,6 @@
 import React from "react";
+import MypageContainer from "../containers/learner/MypageContainer";
 
 export default function LearnerMyPage() {
-    return <div>마이페이즈</div>;
+    return <MypageContainer />;
 }
