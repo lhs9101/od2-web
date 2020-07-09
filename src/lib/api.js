@@ -10,7 +10,11 @@ export const requestLearnerResultReport = (params) => createGetRequest(`/lms/sls
 export const requestLearnerMypage = () => createGetRequest("/lms/sls2/api/learner/my-page/main");
 export const requestLearnerQuestionInfo = (params) => {
     const { subject_code, assessment_division_code, grade_code, question_offer_group } = params;
-    console.log(`/lms/sls2/api/learner/assessment/question/${subject_code}/${assessment_division_code}/${grade_code}/${question_offer_group}/true`);
-
     return createGetRequest(`/lms/sls2/api/learner/assessment/question/${subject_code}/${assessment_division_code}/${grade_code}/${question_offer_group}/true`);
+};
+export const requestQuestionKeep = (params) => createPostRequest("/lms/sls2/api/learner/assessment/keep", params);
+export const requestQuestionHistory = (params) => createPostRequest("/lms/sls2/api/learner/assessment/history", params);
+export const requestWrongAnswerInfo = (params) => {
+    const { subject_code, assessment_division_code, grade_code, learning_domain_code } = params;
+    return createGetRequest(`/lms/sls2/api/learner/result/wrong-answer/${subject_code}/${assessment_division_code}/${grade_code}/${learning_domain_code}`);
 };

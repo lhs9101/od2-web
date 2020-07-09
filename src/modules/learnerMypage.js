@@ -5,10 +5,8 @@ const { requestLearnerMypage } = require("../lib/api");
 const GET_LEARNER_MYPAGE = "learnerMypage/GET_LEARNER_MYPAGE";
 const GET_LEARNER_MYPAGE_SUCCESS = "learnerMypage/GET_LEARNER_MYPAGE_SUCCESS";
 const GET_LEARNER_MYPAGE_ERROR = "learnerMypage/GET_LEARNER_MYPAGE_ERROR";
-
 //thunk
 export const getLearnerMypage = createPromiseThunk(GET_LEARNER_MYPAGE, requestLearnerMypage);
-
 const initialState = reducerUtils.initial();
 
 export default function learnerMypage(state = initialState, action) {

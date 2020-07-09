@@ -10,6 +10,7 @@ import Dropdown from "../../components/common/Dropdown";
 import CollapseCard from "../../components/learner/mypage/CollapseCard";
 import Dialog from "../../components/common/Dialog";
 import { useHistory } from "react-router-dom";
+import { signOutRequest } from "../../modules";
 const Block = styled.div`
     max-width: 500px;
     padding: 15px;
@@ -76,7 +77,7 @@ function getFaqCategory(data) {
 }
 export default function MypageMain() {
     const history = useHistory();
-    const { data, loading, error } = useSelector((state) => state.learnerMypage);
+    const { data } = useSelector((state) => state.learnerMypage);
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getLearnerMypage());
@@ -96,7 +97,10 @@ export default function MypageMain() {
     };
     const handleLogout = () => setDialog(true);
     const handleDialogClose = () => setDialog(false);
-    const goLogout = () => history.push("/");
+    const goLogout = () => {
+        dispatch(signOutRequest());
+        history.push("/");
+    };
     if (data)
         return (
             <Block>

@@ -27,7 +27,7 @@ export default function Progress({ progressRate }) {
 
             <div className="bar-container">
                 <div className="rate">{progressRate}%</div>
-                <ProgressBar />
+                <ProgressBar rate={progressRate} />
                 <div className="bar-text">
                     <span>0</span>
                     <span>100</span>

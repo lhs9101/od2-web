@@ -1,16 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import ModalPortal from "./ModalPortal";
 import styled from "styled-components";
 import { theme } from "../../styles/globalStyle";
+import { ModalContainer } from "../../styles/helpers";
 
 const Block = styled.div`
-    background-color: rgba(0, 0, 0, 0.3);
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 16px;
-    pointer-events: auto;
+    ${ModalContainer}
     .content {
         padding: 15px;
         width: 300px;
@@ -40,7 +35,7 @@ const Block = styled.div`
 `;
 export default function Dialog({ onClose, onYes }) {
     useEffect(() => {
-        document.body.style.overflow = "hidden";
+        document.body.style.overflow = "hidden"; //스크롤 방지
         return () => {
             document.body.style.overflow = "initial";
         };

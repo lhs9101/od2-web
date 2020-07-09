@@ -12,7 +12,9 @@ const Block = styled.div`
         flex-direction: column;
     }
     input {
-        font-size: initial;
+        color: ${theme.colors.black[0]};
+        font-size: 16px;
+        font-weight: 400;
         align-self: center;
         width: 300px;
         max-width: 300px;
@@ -24,6 +26,12 @@ const Block = styled.div`
             margin-top: 12px;
             margin-bottom: 15px;
         }
+    }
+    input[type="password"] {
+        letter-spacing: 10px;
+    }
+    input::placeholder {
+        letter-spacing: initial;
     }
     div {
         display: flex;
@@ -64,8 +72,8 @@ export default function SignInForm({ onSubmit }) {
     return (
         <Block>
             <form action="" onSubmit={handleSubmit} ref={formEl}>
-                <input type="text" name="username" placeholder="아이디" />
-                <input type="password" name="password" placeholder="비밀번호" />
+                <input autoComplete="on" type="text" name="username" placeholder="아이디" />
+                <input autoComplete="on" type="password" name="password" placeholder="비밀번호" />
                 <div className="remember">
                     <span>아이디와 비밀번호 기억하기</span>
                     <ToggleButton onClick={handleToggleButtonClick} initialState={isRememberLoginInfo()} />

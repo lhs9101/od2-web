@@ -2,7 +2,7 @@ import { decrypt, encrypt } from "./security";
 
 const REMEMBER_LOGIN_INFO = "REMEMBER_LOGIN_INFO";
 const LEARNER_LOGIN_INFO = "LEARNER_LOGIN_INFO";
-const TEACHER_LOGIN_IFNO = "TEACHER_LOGIN_INFO";
+// const TEACHER_LOGIN_IFNO = "TEACHER_LOGIN_INFO";
 
 export const isRememberLoginInfo = () => localStorage.getItem(REMEMBER_LOGIN_INFO) === "true";
 export const setRememberLoginInfo = (bool) => localStorage.setItem(REMEMBER_LOGIN_INFO, bool);

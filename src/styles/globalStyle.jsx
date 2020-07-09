@@ -9,25 +9,30 @@ export const theme = {
         gray: ["#f8f7f8", "#e9ecef", "#DDD", "#898989"],
         black: ["#545454"],
         green: ["rgb(41, 159, 76)"],
-        red: ["#f8d7da", "#f5c6cb", "#721c24"],
+        red: ["#f8d7da", "#f5c6cb", "#721c24", "#F06A64"],
     },
     shadow: "0 .5rem 1rem rgba(0,0,0,.15)",
+    shadowSM: "0 0.125rem 0.25rem rgba(0, 0, 0, 0.075)",
     fontSize: ["1rem", "1.25rem", "1.5rem"],
 };
 export const GlobalStyle = createGlobalStyle`
     @font-face {
-        font-family: "NanumGothic";
+        font-family: "NanumGothic" format("woff");
         src: url(${NanumGothic});
+        font-weight: normal;
+        font-style: normal;
     }
     @font-face {
-        font-family: "NanumGothicBold";
+        font-family: "NanumGothicBold" format("woff");
         src: url(${NanumGothicBold});
+        font-weight: normal;
+        font-style: normal;
     }
 
     body {
         width:100vw;
         height:100vh;
-        font-family: "NanumGothic";
+        font-family: "NanumGothic", sans-serif ;
         font-weight:500;
         color:${theme.colors.black[0]};
         line-height:1.6;
@@ -52,6 +57,7 @@ export const GlobalStyle = createGlobalStyle`
         width:100vw;
         height:100vh;
         top:0;
+        left:0;
         pointer-events:none;
         overflow:hidden;
     }

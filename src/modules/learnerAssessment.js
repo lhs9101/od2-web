@@ -19,7 +19,7 @@ const GET_LEARNER_RESULT_ERROR = "learnerAssessment/GET_LEARNER_RESULT_ERROR";
 export const getLearnerInfo = createPromiseThunk(GET_LEARNER_INFO, requestLearnerInfo);
 export const getLearnerProgress = createPromiseThunk(GET_LEARNER_PROGRESS, requestLearnerProgress);
 export const getLearnerResult = createPromiseThunk(GET_LEARNER_RESULT, requestLearnerResultReport);
-
+//액션 생성함수
 const initialState = {
     learnerInfo: reducerUtils.initial(),
     progressInfo: reducerUtils.initial(),

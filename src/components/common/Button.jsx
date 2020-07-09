@@ -13,5 +13,6 @@ const Button = styled.button`
     font: inherit;
     font-family: "NanumGothicBold";
     cursor: pointer;
+    box-shadow: ${theme.shadow};
 `;
 export default Button;

@@ -10,6 +10,7 @@ const Block = styled.div`
         height: ${({ _height }) => _height};
         border-radius: 15px;
         width: ${({ rate }) => rate}%;
+        transition: width 0.3s;
     }
 `;
 export default function ProgressBar({ rate, height = "30px" }) {

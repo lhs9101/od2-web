@@ -5,7 +5,8 @@ import clx from "classnames";
 const Block0 = styled.div`
     display: flex;
     .tab {
-        padding: 12px;
+        padding: 10px 20px 10px 20px;
+        margin: 0 20px 0 20px;
         cursor: pointer;
         color: ${theme.colors.gray[3]};
     }
@@ -22,7 +23,7 @@ const Block1 = styled.div`
     .tab {
         padding: 3px 20px 3px 20px;
         cursor: pointer;
-        color: ${theme.colors.black[0]};
+        color: ${theme.colors.gray[3]};
         border-radius: 16px;
     }
     .tab.selected {
