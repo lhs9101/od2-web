@@ -118,6 +118,7 @@ export default function LearnerQuestionContainer() {
             window.removeEventListener("resize", onResize);
         };
     }, [onResize]);
+
     if (data)
         return (
             <Block width={frameWidth} orientation={orientation}>
@@ -127,7 +128,7 @@ export default function LearnerQuestionContainer() {
                         <iframe
                             key={data.question_info.next_question.frame_id}
                             title="frame"
-                            src={`https://od2.esls.io/lcms/frame-learning/M1/ko_KR/${data.question_info.next_question.frame_id}`}
+                            src={`${process.env.REACT_APP_HOST}/lcms/frame-learning/M1/ko_KR/${data.question_info.next_question.frame_id}`}
                             frameBorder="0"
                         />
                     </div>

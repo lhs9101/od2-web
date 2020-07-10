@@ -7,6 +7,7 @@ import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import rootReducer from "./modules";
 import ReduxThunk from "redux-thunk";
+import "./styles/global.css";
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
 ReactDOM.render(
     <React.StrictMode>

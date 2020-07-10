@@ -10,7 +10,6 @@ const Button = styled.button`
     border: none;
     border-radius: 30px;
     color: ${theme.colors.white};
-    font: inherit;
     font-family: "NanumGothicBold";
     cursor: pointer;
     box-shadow: ${theme.shadow};

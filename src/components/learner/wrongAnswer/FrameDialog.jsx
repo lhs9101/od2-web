@@ -51,7 +51,6 @@ function reducer(state, action) {
     const padding = 70;
     const header = 70;
     if ((width - padding) * 0.625 < height - padding - header) {
-        console.log("port");
         return {
             orientation: "portrait",
             width: width - padding,
@@ -64,8 +63,6 @@ function reducer(state, action) {
 }
 export default function FrameDialog({ onClose, data }) {
     const [screen, dispatch] = useReducer(reducer, initialState);
-    console.log(screen);
-
     useEffect(() => {
         document.body.style.overflow = "hidden"; //스크롤 방지
         return () => {
@@ -104,7 +101,7 @@ export default function FrameDialog({ onClose, data }) {
                     <div className="wrong-description">{data.wrong_answer_example_description}</div>
                     <div className="container">
                         <div className="iframe-container">
-                            <iframe onLoad={handleOnLoad} title="frame" src={`https://od2.esls.io/lcms/frame-replay/ko_KR/${data.frame_id}`} frameBorder="0" />
+                            <iframe onLoad={handleOnLoad} title="frame" src={`${process.env.REACT_APP_HOST}/lcms/frame-replay/ko_KR/${data.frame_id}`} frameBorder="0" />
                         </div>
                     </div>
                 </div>

@@ -7,14 +7,8 @@ import { setRememberLoginInfo, isRememberLoginInfo, getLearnerLoginInfo } from "
 
 const Block = styled.div`
     margin-top: 48px;
-    form {
-        display: flex;
-        flex-direction: column;
-    }
     input {
         color: ${theme.colors.black[0]};
-        font-size: 16px;
-        font-weight: 400;
         align-self: center;
         width: 300px;
         max-width: 300px;
@@ -27,19 +21,7 @@ const Block = styled.div`
             margin-bottom: 15px;
         }
     }
-    input[type="password"] {
-        letter-spacing: 10px;
-    }
-    input::placeholder {
-        letter-spacing: initial;
-    }
-    div {
-        display: flex;
-        justify-content: center;
-    }
     .remember {
-        display: flex;
-        align-items: center;
         margin-bottom: 80px;
         span {
             margin-right: 10px;
@@ -71,14 +53,14 @@ export default function SignInForm({ onSubmit }) {
     }, []);
     return (
         <Block>
-            <form action="" onSubmit={handleSubmit} ref={formEl}>
+            <form className="d-flex flex-column" action="" onSubmit={handleSubmit} ref={formEl}>
                 <input autoComplete="on" type="text" name="username" placeholder="아이디" />
                 <input autoComplete="on" type="password" name="password" placeholder="비밀번호" />
-                <div className="remember">
+                <div className="remember d-flex justify-center align-center">
                     <span>아이디와 비밀번호 기억하기</span>
                     <ToggleButton onClick={handleToggleButtonClick} initialState={isRememberLoginInfo()} />
                 </div>
-                <div>
+                <div className="d-flex justify-center">
                     <Button type="submit">로그인</Button>
                 </div>
             </form>

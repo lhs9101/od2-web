@@ -37,28 +37,10 @@ export const GlobalStyle = createGlobalStyle`
         color:${theme.colors.black[0]};
         line-height:1.6;
     }
-    *{
-        margin: 0;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        box-sizing: border-box;
-    }
-
-    code {
-        font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-            monospace;
-    }
-    #root{
-        width:100%;
-        height:100%;
-    }
-    #modal{
-        position:fixed;
-        width:100vw;
-        height:100vh;
-        top:0;
-        left:0;
-        pointer-events:none;
-        overflow:hidden;
-    }
+    ${theme.colors.blue.map((el, i) => `.color-blue-${(i + 1) * 100}{color:${el};} .bg-blue-${(i + 1) * 100}{background-color:${el};}`)}
+    ${theme.colors.gray.map((el, i) => `.color-gray-${(i + 1) * 100}{color:${el};} .bg-gray-${(i + 1) * 100}{background-color:${el};}`)}
+    ${theme.colors.white.map((el, i) => `.color-white-${(i + 1) * 100}{color:${el};} .bg-white-${(i + 1) * 100}{background-color:${el};}`)}
+    ${theme.colors.green.map((el, i) => `.color-green-${(i + 1) * 100}{color:${el};} .bg-green-${(i + 1) * 100}{background-color:${el};}`)}
+    ${theme.colors.black.map((el, i) => `.color-black-${(i + 1) * 100}{color:${el};} .bg-black-${(i + 1) * 100}{background-color:${el};}`)}
+    ${theme.colors.red.map((el, i) => `.color-red-${(i + 1) * 100}{color:${el};} .bg-red-${(i + 1) * 100}{background-color:${el};}`)}
 `;
